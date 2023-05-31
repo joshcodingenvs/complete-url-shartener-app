@@ -13,3 +13,10 @@ a{
     text-decoration: none;
     color:dodgerblue;
 }
+
+#main-content{
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    gap: 1em;
+}
