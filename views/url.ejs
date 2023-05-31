@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/url.css">
+    <title>URL - Shortener</title>
+</head>
+
+<body>
+    <main id="main-content">
+        <% urls.forEach(url=>{ %>
+            <div id="url-container">
+                <ol class="url-lists">
+                    <li class="url-link"><%= url.originalUrl %></li>            
+                    <li class="url-link">
+                        <a href="<%= url.originalUrl %>" target="_blank">
+                            <%= url.shortenedUrl %>
+                        </a>
+                    </li>                
+                </ol>           
+            </div>
+         <% }) %>
+    </main>
+</body>
+
+</html>
