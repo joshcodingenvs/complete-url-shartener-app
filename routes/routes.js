@@ -17,12 +17,21 @@ router.get("/urls", async (req, res)=>{
     if(urls.length ===0){
         return res.status(200).send("No url yet");
     }
-    res.status(200).json({ urls });
+    res.status(200).render("url", { urls });
+});
+
+router.get("/shorten", (req, res)=>{
+    res.render("urlForm");
 });
 
 router.post("/shorten", async (req, res)=>{
     // get url submitted
     const { url_submitted } = req.body;
+
+    // data validations
+    if(!url_submitted || url_submitted.length ===0 || url_submitted ===""){
+        return res.status(400).send("Url cannot be empty");
+    };
     
     // url structure
     const urlStructure = {
@@ -40,7 +49,7 @@ router.post("/shorten", async (req, res)=>{
 
     await newUrl.save();
 
-    res.status(201).send("Url structure saved");
+    res.status(201).redirect("/url");
 });
 
 // export router instance
