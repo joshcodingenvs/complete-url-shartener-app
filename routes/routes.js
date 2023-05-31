@@ -49,7 +49,7 @@ router.post("/shorten", async (req, res)=>{
 
     await newUrl.save();
 
-    res.status(201).redirect("/url");
+    res.status(201).redirect("/urls");
 });
 
 // export router instance
